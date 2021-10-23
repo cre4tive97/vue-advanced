@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    hello
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
-  methods: {
-    fetchData() {
-      console.log("hello");
-    },
-  },
+  components: {},
 };
 </script>
 
