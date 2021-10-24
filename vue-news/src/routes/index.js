@@ -7,6 +7,7 @@ import AskView from "../views/AskView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
+  mode: "history",
   routes: [
     {
       path: "/",
