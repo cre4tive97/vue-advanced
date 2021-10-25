@@ -3,7 +3,7 @@
     <ul class="jobs-list">
       <li v-for="(jobs, i) in fetchedJobs" :key="i" class="post">
         <div class="points">
-          {{ jobs.points }}
+          0
         </div>
         <div>
           <p class="jobs-title">
@@ -11,9 +11,7 @@
           </p>
           <small class="link-text">
             {{ jobs.time_ago }} from
-            <router-link :to="`/user/${jobs.user}`" class="link-text">
-              {{ jobs.domain }}
-            </router-link>
+            <a :href="`https://www.${jobs.domain}`">{{ jobs.domain }}</a>
           </small>
         </div>
       </li>
