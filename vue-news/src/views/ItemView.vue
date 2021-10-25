@@ -24,9 +24,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+// import UserProfile from "../components/UserProfile.vue";
 
 export default {
   name: "ItemView",
+  // components : {
+  //   UserProfile
+  // },
   computed: {
     ...mapGetters(["fetchedItem"]),
   },
