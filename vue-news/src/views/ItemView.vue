@@ -1,6 +1,9 @@
 <template>
   <div>
-    <UserProfile :info="fetchedItem" />
+    <UserProfile :info="fetchedItem">
+      <div slot="username">{{ fetchedItem.user }}</div>
+      <template slot="time">{{ fetchedItem.time_ago }}</template>
+    </UserProfile>
     <section>
       <h2>{{ fetchedItem.title }}</h2>
     </section>
