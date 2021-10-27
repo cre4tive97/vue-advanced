@@ -1,19 +1,11 @@
-<template>
-  <div>
-    <ListItem />
-  </div>
-</template>
-
-<script>
-import ListItem from "../components/ListItem.vue";
 import bus from "../utils/bus";
+
 export default {
-  name: "AskView",
-  components: { ListItem },
+  // 재사용할 컴포넌트 옵션
   created() {
     bus.$emit("start:spinner");
     this.$store
-      .dispatch("FETCH_ASK")
+      .dispatch("FETCH_LIST", this.$route.name)
       .then(() => {
         console.log("fetched");
         bus.$emit("end:spinner");
@@ -21,4 +13,3 @@ export default {
       .catch((error) => console.log(error));
   },
 };
-</script>
