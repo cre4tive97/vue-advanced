@@ -19,7 +19,10 @@ export default {
   },
   FETCH_JOBS({ commit }) {
     fetchJobsList()
-      .then(({ data }) => commit("SET_JOBS", data))
+      .then(({ data }) => {
+        commit("SET_JOBS", data);
+        return { data };
+      })
       .catch((error) => console.log(error));
   },
   FETCH_USER({ commit }, name) {
