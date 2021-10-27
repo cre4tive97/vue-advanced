@@ -24,8 +24,6 @@ export const router = new VueRouter({
         store
           .dispatch("FETCH_LIST", to.name)
           .then(() => {
-            console.log("fetched");
-            bus.$emit("end:spinner");
             next();
           })
           .catch((error) => console.log(error));
@@ -35,11 +33,29 @@ export const router = new VueRouter({
       path: "/ask",
       name: "ask",
       component: createListView("AskView"),
+      beforeEnter: (to, from, next) => {
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => {
+            next();
+          })
+          .catch((error) => console.log(error));
+      },
     },
     {
       path: "/jobs",
       name: "jobs",
       component: createListView("JobsView"),
+      beforeEnter: (to, from, next) => {
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => {
+            next();
+          })
+          .catch((error) => console.log(error));
+      },
     },
 
     {
