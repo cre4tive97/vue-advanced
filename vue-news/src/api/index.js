@@ -22,10 +22,15 @@ function fetchItemInfo(item) {
   return axios.get(`${config.baseURL}item/${item}.json`);
 }
 
+function fetchList(pageName) {
+  return axios.get(`${config.baseURL}${pageName}/1.json`);
+}
+
 export {
   fetchNewsList,
   fetchAskList,
   fetchJobsList,
   fetchUserInfo,
   fetchItemInfo,
+  fetchList,
 };
