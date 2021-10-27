@@ -1,7 +1,6 @@
 <template>
   <div>
     <UserProfile>
-      <!-- <div slot="username">{{ fetchedItem.user }}</div> -->
       <router-link slot="username" :to="`/user/${fetchedItem.user}`">
         {{ fetchedItem.user }}
       </router-link>

@@ -4,15 +4,18 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
+    <Spinner :loading="true" />
   </div>
 </template>
 
 <script>
 import ToolBar from "./components/ToolBar.vue";
+import Spinner from "./components/Spinner.vue";
 export default {
   name: "App",
   components: {
     ToolBar,
+    Spinner,
   },
 };
 </script>
