@@ -1,36 +1,33 @@
 import axios from "axios";
 
-// 1. HTTP Request & Response와 관련된 기본 설정
 const config = {
   baseURL: "https://api.hnpwa.com/v0/",
 };
 
-// 2. API 함수들을 정리
-function fetchNewsList() {
-  return axios.get(`${config.baseURL}news/1.json`);
+async function fetchUserInfo(username) {
+  try {
+    const response = axios.get(`${config.baseURL}user/${username}.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
-function fetchAskList() {
-  return axios.get(`${config.baseURL}ask/1.json`);
-}
-function fetchJobsList() {
-  return axios.get(`${config.baseURL}jobs/1.json`);
-}
-function fetchUserInfo(username) {
-  return axios.get(`${config.baseURL}user/${username}.json`);
-}
-function fetchItemInfo(item) {
-  return axios.get(`${config.baseURL}item/${item}.json`);
-}
-
-function fetchList(pageName) {
-  return axios.get(`${config.baseURL}${pageName}/1.json`);
+async function fetchItemInfo(item) {
+  try {
+    const response = axios.get(`${config.baseURL}item/${item}.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-export {
-  fetchNewsList,
-  fetchAskList,
-  fetchJobsList,
-  fetchUserInfo,
-  fetchItemInfo,
-  fetchList,
-};
+async function fetchList(pageName) {
+  try {
+    const response = await axios.get(`${config.baseURL}${pageName}/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { fetchUserInfo, fetchItemInfo, fetchList };
