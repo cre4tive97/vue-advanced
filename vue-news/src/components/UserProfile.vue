@@ -5,10 +5,11 @@
     </div>
     <div class="user-description">
       <slot name="username"></slot>
+
       <div class="time">
         <slot name="time"></slot>
+        <slot name="karma"></slot>
       </div>
-      <slot name="karma"></slot>
     </div>
   </div>
 </template>
@@ -16,9 +17,6 @@
 <script>
 export default {
   name: "UserProfile",
-  props: {
-    info: Object,
-  },
 };
 </script>
 
